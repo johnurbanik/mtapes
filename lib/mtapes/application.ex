@@ -1,4 +1,4 @@
-defmodule Playlistr.Application do
+defmodule Mtapes.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,23 +9,23 @@ defmodule Playlistr.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      Playlistr.Repo,
+      Mtapes.Repo,
       # Start the endpoint when the application starts
-      PlaylistrWeb.Endpoint
-      # Starts a worker by calling: Playlistr.Worker.start_link(arg)
-      # {Playlistr.Worker, arg},
+      MtapesWeb.Endpoint
+      # Starts a worker by calling: Mtapes.Worker.start_link(arg)
+      # {Mtapes.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Playlistr.Supervisor]
+    opts = [strategy: :one_for_one, name: Mtapes.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    PlaylistrWeb.Endpoint.config_change(changed, removed)
+    MtapesWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

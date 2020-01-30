@@ -1,16 +1,16 @@
 use Mix.Config
 
 # Configure your database
-config :playlistr, Playlistr.Repo,
+config :mtapes, Mtapes.Repo,
   username: "postgres",
   password: "postgres",
-  database: "playlistr_test",
+  database: "mtapes_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :playlistr, PlaylistrWeb.Endpoint,
+config :mtapes, MtapesWeb.Endpoint,
   http: [port: 4002],
   server: false
 

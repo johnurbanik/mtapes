@@ -1,12 +1,12 @@
-defmodule PlaylistrWeb do
+defmodule MtapesWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use PlaylistrWeb, :controller
-      use PlaylistrWeb, :view
+      use MtapesWeb, :controller
+      use MtapesWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule PlaylistrWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PlaylistrWeb
+      use Phoenix.Controller, namespace: MtapesWeb
 
       import Plug.Conn
-      import PlaylistrWeb.Gettext
-      alias PlaylistrWeb.Router.Helpers, as: Routes
+      import MtapesWeb.Gettext
+      alias MtapesWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/playlistr_web/templates",
-        namespace: PlaylistrWeb
+        root: "lib/mtapes_web/templates",
+        namespace: MtapesWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -39,9 +39,9 @@ defmodule PlaylistrWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import PlaylistrWeb.ErrorHelpers
-      import PlaylistrWeb.Gettext
-      alias PlaylistrWeb.Router.Helpers, as: Routes
+      import MtapesWeb.ErrorHelpers
+      import MtapesWeb.Gettext
+      alias MtapesWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -56,7 +56,7 @@ defmodule PlaylistrWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PlaylistrWeb.Gettext
+      import MtapesWeb.Gettext
     end
   end
 

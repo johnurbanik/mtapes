@@ -1,5 +1,5 @@
-defmodule PlaylistrWeb.ErrorView do
-  use PlaylistrWeb, :view
+defmodule MtapesWeb.ErrorView do
+  use MtapesWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

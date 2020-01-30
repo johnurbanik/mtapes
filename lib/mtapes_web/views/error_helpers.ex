@@ -1,4 +1,4 @@
-defmodule PlaylistrWeb.ErrorHelpers do
+defmodule MtapesWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -36,9 +36,9 @@ defmodule PlaylistrWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(PlaylistrWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(MtapesWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(PlaylistrWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(MtapesWeb.Gettext, "errors", msg, opts)
     end
   end
 end
