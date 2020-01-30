@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     Playlistr.Repo.insert!(%Playlistr.SomeSchema{})
+#     Mtapes.Repo.insert!(%Mtapes.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

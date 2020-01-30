@@ -1,5 +1,5 @@
-defmodule PlaylistrWeb.Router do
-  use PlaylistrWeb, :router
+defmodule MtapesWeb.Router do
+  use MtapesWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule PlaylistrWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PlaylistrWeb do
+  scope "/", MtapesWeb do
     pipe_through :browser
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PlaylistrWeb do
+  # scope "/api", MtapesWeb do
   #   pipe_through :api
   # end
 end

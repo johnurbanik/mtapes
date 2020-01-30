@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :playlistr, Playlistr.Repo,
-  username: "johnurbanik",
-  password: "",
-  database: "playlistr",
+config :mtapes, Mtapes.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "mtapes",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :playlistr, Playlistr.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :playlistr, PlaylistrWeb.Endpoint,
+config :mtapes, MtapesWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :playlistr, PlaylistrWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :playlistr, PlaylistrWeb.Endpoint,
+config :mtapes, MtapesWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/playlistr_web/{live,views}/.*(ex)$",
-      ~r"lib/playlistr_web/templates/.*(eex)$"
+      ~r"lib/mtapes_web/{live,views}/.*(ex)$",
+      ~r"lib/mtapes_web/templates/.*(eex)$"
     ]
   ]
 

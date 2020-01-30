@@ -1,7 +1,7 @@
-defmodule PlaylistrWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :playlistr
+defmodule MtapesWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :mtapes
 
-  socket "/socket", PlaylistrWeb.UserSocket,
+  socket "/socket", MtapesWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -11,7 +11,7 @@ defmodule PlaylistrWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :playlistr,
+    from: :mtapes,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -39,8 +39,8 @@ defmodule PlaylistrWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_playlistr_key",
-    signing_salt: "XpHoe8/Z"
+    key: "_mtapes_key",
+    signing_salt: "edfQFSGb"
 
-  plug PlaylistrWeb.Router
+  plug MtapesWeb.Router
 end

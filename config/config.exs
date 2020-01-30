@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :playlistr,
-  ecto_repos: [Playlistr.Repo]
+config :mtapes,
+  ecto_repos: [Mtapes.Repo]
 
 # Configures the endpoint
-config :playlistr, PlaylistrWeb.Endpoint,
+config :mtapes, MtapesWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "d+N2t3jTN+o9ZPSFv8Yzh57hexbaS1H96NRg77/8AcFvKVg/ircyLeAreNqNzv0d",
-  render_errors: [view: PlaylistrWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Playlistr.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "MgnH4Q8BVNhiBdCnuM9B9K49Y1NoniWb3Y8kDKeqBu6518N178ZEliZcYNTPFyAJ",
+  render_errors: [view: MtapesWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Mtapes.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

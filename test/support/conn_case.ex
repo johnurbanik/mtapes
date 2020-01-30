@@ -1,4 +1,4 @@
-defmodule PlaylistrWeb.ConnCase do
+defmodule MtapesWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule PlaylistrWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use PlaylistrWeb.ConnCase, async: true`, although
+  by setting `use MtapesWeb.ConnCase, async: true`, although
   this option is not recommendded for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule PlaylistrWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias PlaylistrWeb.Router.Helpers, as: Routes
+      alias MtapesWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint PlaylistrWeb.Endpoint
+      @endpoint MtapesWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Playlistr.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Mtapes.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Playlistr.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Mtapes.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

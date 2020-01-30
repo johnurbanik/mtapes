@@ -1,4 +1,4 @@
-defmodule Playlistr.DataCase do
+defmodule Mtapes.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule Playlistr.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use PlaylistrWeb.DataCase, async: true`, although
+  by setting `use MtapesWeb.DataCase, async: true`, although
   this option is not recommendded for other databases.
   """
 
@@ -18,20 +18,20 @@ defmodule Playlistr.DataCase do
 
   using do
     quote do
-      alias Playlistr.Repo
+      alias Mtapes.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Playlistr.DataCase
+      import Mtapes.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Playlistr.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Mtapes.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Playlistr.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Mtapes.Repo, {:shared, self()})
     end
 
     :ok

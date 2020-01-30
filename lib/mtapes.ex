@@ -1,6 +1,6 @@
-defmodule Playlistr do
+defmodule Mtapes do
   @moduledoc """
-  Playlistr keeps the contexts that define your domain
+  Mtapes keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

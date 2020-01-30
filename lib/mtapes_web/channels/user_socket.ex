@@ -1,8 +1,8 @@
-defmodule PlaylistrWeb.UserSocket do
+defmodule MtapesWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", PlaylistrWeb.RoomChannel
+  # channel "room:*", MtapesWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -26,7 +26,7 @@ defmodule PlaylistrWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     PlaylistrWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     MtapesWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

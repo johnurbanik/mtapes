@@ -1,4 +1,4 @@
-defmodule PlaylistrWeb.ChannelCase do
+defmodule MtapesWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule PlaylistrWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint PlaylistrWeb.Endpoint
+      @endpoint MtapesWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Playlistr.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Mtapes.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Playlistr.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Mtapes.Repo, {:shared, self()})
     end
 
     :ok
