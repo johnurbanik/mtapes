@@ -1,4 +1,4 @@
-# Mtapes
+# MTapes (Magnetic Tapes)
 
 To start your Phoenix server:
 
