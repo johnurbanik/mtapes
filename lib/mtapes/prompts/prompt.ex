@@ -8,7 +8,7 @@ defmodule Mtapes.Prompts.Prompt do
     field :body, :string, null: false
     field :image, :string
     field :title, :string, null: false
-    field :weight, :float
+    field :weight, :float, default: 0
     belongs_to :user_id, Mtapes.Users.User
     many_to_many :playlist_id, Playlist, join_through: "prompts_playlists", on_replace: :delete
 
