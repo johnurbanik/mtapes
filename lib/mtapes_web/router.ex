@@ -44,6 +44,7 @@ defmodule MtapesWeb.Router do
 
     get "/", PageController, :index
     resources "/playlist", PlaylistController
+    resources "/song", SongController
   end
 
   # Other scopes may use custom stacks.
