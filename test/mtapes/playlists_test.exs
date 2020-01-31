@@ -126,4 +126,61 @@ defmodule Mtapes.PlaylistsTest do
       assert %Ecto.Changeset{} = Playlists.change_song(song)
     end
   end
+
+  describe "playlists_songs" do
+    alias Mtapes.Playlists.PlaylistSong
+
+    @valid_attrs %{}
+    @update_attrs %{}
+    @invalid_attrs %{}
+
+    def playlist_song_fixture(attrs \\ %{}) do
+      {:ok, playlist_song} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Playlists.create_playlist_song()
+
+      playlist_song
+    end
+
+    test "list_playlists_songs/0 returns all playlists_songs" do
+      playlist_song = playlist_song_fixture()
+      assert Playlists.list_playlists_songs() == [playlist_song]
+    end
+
+    test "get_playlist_song!/1 returns the playlist_song with given id" do
+      playlist_song = playlist_song_fixture()
+      assert Playlists.get_playlist_song!(playlist_song.id) == playlist_song
+    end
+
+    test "create_playlist_song/1 with valid data creates a playlist_song" do
+      assert {:ok, %PlaylistSong{} = playlist_song} = Playlists.create_playlist_song(@valid_attrs)
+    end
+
+    test "create_playlist_song/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Playlists.create_playlist_song(@invalid_attrs)
+    end
+
+    test "update_playlist_song/2 with valid data updates the playlist_song" do
+      playlist_song = playlist_song_fixture()
+      assert {:ok, %PlaylistSong{} = playlist_song} = Playlists.update_playlist_song(playlist_song, @update_attrs)
+    end
+
+    test "update_playlist_song/2 with invalid data returns error changeset" do
+      playlist_song = playlist_song_fixture()
+      assert {:error, %Ecto.Changeset{}} = Playlists.update_playlist_song(playlist_song, @invalid_attrs)
+      assert playlist_song == Playlists.get_playlist_song!(playlist_song.id)
+    end
+
+    test "delete_playlist_song/1 deletes the playlist_song" do
+      playlist_song = playlist_song_fixture()
+      assert {:ok, %PlaylistSong{}} = Playlists.delete_playlist_song(playlist_song)
+      assert_raise Ecto.NoResultsError, fn -> Playlists.get_playlist_song!(playlist_song.id) end
+    end
+
+    test "change_playlist_song/1 returns a playlist_song changeset" do
+      playlist_song = playlist_song_fixture()
+      assert %Ecto.Changeset{} = Playlists.change_playlist_song(playlist_song)
+    end
+  end
 end

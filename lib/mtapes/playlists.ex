@@ -197,4 +197,100 @@ defmodule Mtapes.Playlists do
   def change_song(%Song{} = song) do
     Song.changeset(song, %{})
   end
+
+  alias Mtapes.Playlists.PlaylistSong
+
+  @doc """
+  Returns the list of playlists_songs.
+
+  ## Examples
+
+      iex> list_playlists_songs()
+      [%PlaylistSong{}, ...]
+
+  """
+  def list_playlists_songs do
+    Repo.all(PlaylistSong)
+  end
+
+  @doc """
+  Gets a single playlist_song.
+
+  Raises `Ecto.NoResultsError` if the Playlist song does not exist.
+
+  ## Examples
+
+      iex> get_playlist_song!(123)
+      %PlaylistSong{}
+
+      iex> get_playlist_song!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_playlist_song!(id), do: Repo.get!(PlaylistSong, id)
+
+  @doc """
+  Creates a playlist_song.
+
+  ## Examples
+
+      iex> create_playlist_song(%{field: value})
+      {:ok, %PlaylistSong{}}
+
+      iex> create_playlist_song(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_playlist_song(attrs \\ %{}) do
+    %PlaylistSong{}
+    |> PlaylistSong.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a playlist_song.
+
+  ## Examples
+
+      iex> update_playlist_song(playlist_song, %{field: new_value})
+      {:ok, %PlaylistSong{}}
+
+      iex> update_playlist_song(playlist_song, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_playlist_song(%PlaylistSong{} = playlist_song, attrs) do
+    playlist_song
+    |> PlaylistSong.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a PlaylistSong.
+
+  ## Examples
+
+      iex> delete_playlist_song(playlist_song)
+      {:ok, %PlaylistSong{}}
+
+      iex> delete_playlist_song(playlist_song)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_playlist_song(%PlaylistSong{} = playlist_song) do
+    Repo.delete(playlist_song)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking playlist_song changes.
+
+  ## Examples
+
+      iex> change_playlist_song(playlist_song)
+      %Ecto.Changeset{source: %PlaylistSong{}}
+
+  """
+  def change_playlist_song(%PlaylistSong{} = playlist_song) do
+    PlaylistSong.changeset(playlist_song, %{})
+  end
 end
