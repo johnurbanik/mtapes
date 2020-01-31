@@ -1,0 +1,13 @@
+<h1>Show Prompt vote</h1>
+
+<ul>
+
+  <li>
+    <strong>Direction:</strong>
+    <%= @prompt_vote.direction %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.prompt_vote_path(@conn, :edit, @prompt_vote) %></span>
+<span><%= link "Back", to: Routes.prompt_vote_path(@conn, :index) %></span>

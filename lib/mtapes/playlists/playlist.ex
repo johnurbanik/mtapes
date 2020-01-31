@@ -8,6 +8,7 @@ defmodule Mtapes.Playlists.Playlist do
     field :name, :string, null: false
     field :description, :string
     field :spotify_id, :string
+    field :image, :string
     many_to_many :songs, Song, join_through: "playlists_songs", on_replace: :delete
 
     timestamps()

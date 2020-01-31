@@ -1,0 +1,8 @@
+<h1>Show Prompt playlist</h1>
+
+<ul>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.prompt_playlist_path(@conn, :edit, @prompt_playlist) %></span>
+<span><%= link "Back", to: Routes.prompt_playlist_path(@conn, :index) %></span>

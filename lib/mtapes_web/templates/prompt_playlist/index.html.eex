@@ -1,0 +1,24 @@
+<h1>Listing Prompts playlists</h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for prompt_playlist <- @prompts_playlists do %>
+    <tr>
+
+      <td>
+        <span><%= link "Show", to: Routes.prompt_playlist_path(@conn, :show, prompt_playlist) %></span>
+        <span><%= link "Edit", to: Routes.prompt_playlist_path(@conn, :edit, prompt_playlist) %></span>
+        <span><%= link "Delete", to: Routes.prompt_playlist_path(@conn, :delete, prompt_playlist), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Prompt playlist", to: Routes.prompt_playlist_path(@conn, :new) %></span>

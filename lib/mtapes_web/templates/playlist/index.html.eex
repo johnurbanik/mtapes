@@ -27,4 +27,13 @@
   </tbody>
 </table>
 
+<h4> Feature Playlists </h4>
+<ul>
+  <%= for playlist <- @playlists do %>
+    <li>
+      <%= playlist.name %>
+    </li>
+  <% end %>
+</ul>
+
 <span><%= link "New Playlist", to: Routes.playlist_path(@conn, :new) %></span>

@@ -2,9 +2,10 @@ defmodule Mtapes.Playlists.PlaylistSong do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @primary_key false
   schema "playlists_songs" do
-    field :playlist_id, :id
-    field :song_id, :id
+    belongs_to :playlist_id, Mtapes.Playlists.Playlist, primary_key: True
+    belongs_to :song_id, Mtapes.Playlists.Song, primary_key: True
 
     timestamps()
   end
