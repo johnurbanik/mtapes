@@ -43,7 +43,7 @@ defmodule MtapesWeb.Router do
     pipe_through [:browser, :protected]
 
     get "/", PageController, :index
-
+    resources "/playlist", PlaylistController
   end
 
   # Other scopes may use custom stacks.

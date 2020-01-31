@@ -8,6 +8,7 @@ defmodule Mtapes.Playlists.Playlist do
     field :description, :string
     field :spotify_id, :string
 
+    timestamps()
   end
 
   def changeset(playlist, params \\ %{}) do
