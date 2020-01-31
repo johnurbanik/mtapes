@@ -25,6 +25,20 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :mtapes, :pow,
+  user: Mtapes.Users.User,
+  repo: Mtapes.Repo,
+  web_module: MtapesWeb
+
+config :mtapes, :pow_assent,
+  providers: [
+    facebook: [
+      client_id: "601464147317428",
+      client_secret: "36ac3623c811640e01812c920d39750c",
+      strategy: Assent.Strategy.Facebook
+    ]
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

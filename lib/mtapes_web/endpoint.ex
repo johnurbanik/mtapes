@@ -42,5 +42,7 @@ defmodule MtapesWeb.Endpoint do
     key: "_mtapes_key",
     signing_salt: "edfQFSGb"
 
+  plug Pow.Plug.Session, otp_app: :mtapes
+
   plug MtapesWeb.Router
 end
