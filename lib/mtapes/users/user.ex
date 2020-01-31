@@ -7,5 +7,6 @@ defmodule Mtapes.Users.User do
     pow_user_fields()
 
     timestamps()
+    has_many :playlists, Mtapes.Playlists.Playlist
   end
 end
