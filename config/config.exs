@@ -34,7 +34,7 @@ config :mtapes, :pow,
 config :spotify_ex,
   user_id: "jurbanik",
   scopes: ["playlist-read-private", "playlist-read-collaborative"],
-  callback_url: "http://localhost:4000"
+  callback_url: "http://localhost:4000/spotify/authenticate"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

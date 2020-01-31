@@ -4,9 +4,12 @@ defmodule MtapesWeb.PlaylistController do
   alias Mtapes.Playlists
   alias Mtapes.Playlists.Playlist
 
+  require Logger
+
   def index(conn, _params) do
     playlist = Playlists.list_playlist()
-    render(conn, "index.html", playlist: playlist)
+    {:ok, %{ items: playlists }} = Spotify.Playlist.featured(conn)
+    render(conn, "index.html", playlist: playlist, playlists: playlists)
   end
 
   def new(conn, _params) do
@@ -26,9 +29,20 @@ defmodule MtapesWeb.PlaylistController do
     end
   end
 
+
   def show(conn, %{"id" => id}) do
     playlist = Playlists.get_playlist!(id)
-    render(conn, "show.html", playlist: playlist)
+    {:ok, details} = Spotify.Playlist.get_playlist(conn, Spotify.current_user, playlist.spotify_id)
+
+
+    render(conn, "show.html", playlist: playlist, details: details.tracks["items"] |>  Enum.map(&artist_track/1))
+  end
+
+  defp artist_track(track) do
+    t = track["track"]
+    artist = t["artists"]|> Enum.map(&(&1["name"])) |> Enum.join(", ")
+    image = (t["album"]["images"] |> Enum.at(1))["url"]
+    %{id: t["id"], name: t["name"], artist: artist, image: image, url: t["external_urls"]["spotify"]}
   end
 
   def edit(conn, %{"id" => id}) do

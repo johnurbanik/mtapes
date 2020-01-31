@@ -27,6 +27,10 @@ defmodule MtapesWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :spotify do
+    plug MtapesWeb.Plugs.Auth
+  end
+
   scope "/" do
     pipe_through [:skip_csrf_protection]
 
@@ -40,12 +44,11 @@ defmodule MtapesWeb.Router do
   end
 
   scope "/", MtapesWeb do
-    pipe_through [:browser, :protected]
+    pipe_through [:browser, :protected, :spotify]
 
     get "/", PageController, :index
-    resources "/playlist", PlaylistController do
-      resources "/songs", PlaylistSongController
-    end
+    resources "/playlist", PlaylistController
+    resources "/ps", PlaylistSongController
     resources "/song", SongController
   end
 

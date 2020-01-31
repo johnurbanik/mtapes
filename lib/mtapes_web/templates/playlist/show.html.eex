@@ -19,5 +19,19 @@
 
 </ul>
 
+<iframe src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+<div class="grid-container">
+  <%= for track <- @details do %>
+    <a href="<%= track.url %>"><img src="<%=track.image %>"></a>
+  <% end %>
+</div>
+
+<ul><%= for track <- @details do %>
+  <li>
+    <span><%= track.artist %> - <%= track.name %></span>
+  </li>
+<% end %></ul>
+
 <span><%= link "Edit", to: Routes.playlist_path(@conn, :edit, @playlist) %></span>
 <span><%= link "Back", to: Routes.playlist_path(@conn, :index) %></span>
