@@ -1,0 +1,33 @@
+<h1>Show Prompt</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @prompt.title %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @prompt.body %>
+  </li>
+
+  <li>
+    <strong>Image:</strong>
+    <%= @prompt.image %>
+  </li>
+
+  <li>
+    <strong>Weight:</strong>
+    <%= @prompt.weight %>
+  </li>
+
+  <li>
+    <strong>accepting submissions:</strong>
+    <%= @prompt.accepting_submissions %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.prompt_path(@conn, :edit, @prompt) %></span>
+<span><%= link "Back", to: Routes.prompt_path(@conn, :index) %></span>

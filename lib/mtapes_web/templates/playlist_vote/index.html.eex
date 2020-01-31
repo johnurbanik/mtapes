@@ -1,0 +1,26 @@
+<h1>Listing Playlist votes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Direction</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for playlist_vote <- @playlist_votes do %>
+    <tr>
+      <td><%= playlist_vote.direction %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.playlist_vote_path(@conn, :show, playlist_vote) %></span>
+        <span><%= link "Edit", to: Routes.playlist_vote_path(@conn, :edit, playlist_vote) %></span>
+        <span><%= link "Delete", to: Routes.playlist_vote_path(@conn, :delete, playlist_vote), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Playlist vote", to: Routes.playlist_vote_path(@conn, :new) %></span>

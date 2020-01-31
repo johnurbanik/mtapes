@@ -1,0 +1,5 @@
+<h1>Edit Prompt vote</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.prompt_vote_path(@conn, :update, @prompt_vote)) %>
+
+<span><%= link "Back", to: Routes.prompt_vote_path(@conn, :index) %></span>

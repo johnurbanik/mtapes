@@ -50,6 +50,10 @@ defmodule MtapesWeb.Router do
     resources "/playlist", PlaylistController
     resources "/ps", PlaylistSongController
     resources "/song", SongController
+    resources "/prompts", PromptController
+    resources "/pp", PromptPlaylistController
+    resources "/pv", PromptVoteController
+    resources "/ppv", PlaylistVoteController
   end
 
   scope "/spotify", MtapesWeb do

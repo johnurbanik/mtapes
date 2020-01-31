@@ -1,0 +1,5 @@
+<h1>Edit Prompt playlist</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.prompt_playlist_path(@conn, :update, @prompt_playlist)) %>
+
+<span><%= link "Back", to: Routes.prompt_playlist_path(@conn, :index) %></span>

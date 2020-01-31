@@ -1,0 +1,13 @@
+<h1>Show Playlist vote</h1>
+
+<ul>
+
+  <li>
+    <strong>Direction:</strong>
+    <%= @playlist_vote.direction %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.playlist_vote_path(@conn, :edit, @playlist_vote) %></span>
+<span><%= link "Back", to: Routes.playlist_vote_path(@conn, :index) %></span>

@@ -1,0 +1,26 @@
+<h1>Listing Prompt votes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Direction</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for prompt_vote <- @prompt_votes do %>
+    <tr>
+      <td><%= prompt_vote.direction %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.prompt_vote_path(@conn, :show, prompt_vote) %></span>
+        <span><%= link "Edit", to: Routes.prompt_vote_path(@conn, :edit, prompt_vote) %></span>
+        <span><%= link "Delete", to: Routes.prompt_vote_path(@conn, :delete, prompt_vote), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Prompt vote", to: Routes.prompt_vote_path(@conn, :new) %></span>
