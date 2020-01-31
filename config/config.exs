@@ -13,7 +13,7 @@ config :mtapes,
 # Configures the endpoint
 config :mtapes, MtapesWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "MgnH4Q8BVNhiBdCnuM9B9K49Y1NoniWb3Y8kDKeqBu6518N178ZEliZcYNTPFyAJ",
+  secret_key_base: "OVERRIDE",
   render_errors: [view: MtapesWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Mtapes.PubSub, adapter: Phoenix.PubSub.PG2]
 
@@ -30,15 +30,16 @@ config :mtapes, :pow,
   repo: Mtapes.Repo,
   web_module: MtapesWeb
 
-config :mtapes, :pow_assent,
-  providers: [
-    facebook: [
-      client_id: "601464147317428",
-      client_secret: "36ac3623c811640e01812c920d39750c",
-      strategy: Assent.Strategy.Facebook
-    ]
-  ]
+
+config :spotify_ex,
+  user_id: "jurbanik",
+  scopes: ["playlist-read-private", "playlist-read-collaborative"],
+  callback_url: "http://localhost:4000"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+# Finally import the config/secret.exs which loads secrets
+# and configuration from environment variables.
+import_config "secret.exs"

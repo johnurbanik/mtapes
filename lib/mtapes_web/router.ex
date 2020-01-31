@@ -43,9 +43,17 @@ defmodule MtapesWeb.Router do
     pipe_through [:browser, :protected]
 
     get "/", PageController, :index
-    resources "/playlist", PlaylistController
+    resources "/playlist", PlaylistController do
+      resources "/songs", PlaylistSongController
+    end
     resources "/song", SongController
-    resources "/playlists_songs", PlaylistSongController
+  end
+
+  scope "/spotify", MtapesWeb do
+    pipe_through :browser
+
+    get "/authorize", SpotifyController, :authorize
+    get "/authenticate", SpotifyController, :authenticate
   end
 
   # Other scopes may use custom stacks.

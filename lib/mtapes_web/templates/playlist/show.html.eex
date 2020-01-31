@@ -1,0 +1,23 @@
+<h1>Show Playlist</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @playlist.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @playlist.description %>
+  </li>
+
+  <li>
+    <strong>Spotify:</strong>
+    <%= @playlist.spotify_id %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.playlist_path(@conn, :edit, @playlist) %></span>
+<span><%= link "Back", to: Routes.playlist_path(@conn, :index) %></span>
