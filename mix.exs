@@ -46,7 +46,7 @@ defmodule Mtapes.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:pow, "~> 1.0.16"},
       {:pow_assent, "~> 0.4.5"},
-      {:spotify_ex, "~> 2.0.9"},
+      {:spotify_ex, "~> 2.0.9", path: 'deps/spotify_ex'},
       {:ssl_verify_fun, "~> 1.1"}
     ]
   end

@@ -1,5 +1,5 @@
 defmodule MtapesWeb.Plugs.Auth do
-  import Plug.Conn
+  require Logger
 
   def init(default), do: default
 
