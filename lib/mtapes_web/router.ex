@@ -3,6 +3,10 @@ defmodule MtapesWeb.Router do
   use Pow.Phoenix.Router
   use PowAssent.Phoenix.Router
 
+  use Plug.ErrorHandler
+
+  require Logger
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -63,6 +67,16 @@ defmodule MtapesWeb.Router do
     get "/authenticate", SpotifyController, :authenticate
   end
 
+  def handle_errors(conn, %{kind: _kind, reason: _reason, stack: _stack}) do
+    old_path = conn.request_path
+    if _reason.term["error"]["message"] == "The access token expired" do
+      {:ok, conn} = conn |> Spotify.Authentication.refresh()
+      conn |> redirect(to: old_path) |> halt()
+    end
+
+    conn
+
+  end
   # Other scopes may use custom stacks.
   # scope "/api", MtapesWeb do
   #   pipe_through :api

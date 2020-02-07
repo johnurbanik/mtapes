@@ -8,6 +8,8 @@ defmodule Mtapes.Playlists do
 
   alias Mtapes.Playlists.Playlist
 
+  require Logger
+
   @doc """
   Returns the list of playlist.
 
@@ -71,6 +73,8 @@ defmodule Mtapes.Playlists do
     playlist
     |> Playlist.changeset(attrs)
     |> Repo.update()
+
+    Logger.info(playlist.spotify_id)
   end
 
   @doc """
